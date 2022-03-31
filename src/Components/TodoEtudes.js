@@ -18,11 +18,12 @@ class TodoEtudes extends Component {
                         this.props.itemsEtudes.map((item=>{
 
                              return(
-                                <li key={item.keyEtudes}>{item.text}</li>
+                                <li 
+                                key={item.keyEtudes}
+                                onClick={()=>this.props.delete(item.keyEtudes)}
+                                >{item.text}</li>
                             )
-                        }))
-                      
-                          
+                        })) 
                          
                        }
 

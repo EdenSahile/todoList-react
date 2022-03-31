@@ -15,6 +15,7 @@ class Header extends Component {
 
               <form className='form' onSubmit={(e)=>this.props.submit(e)}> 
                 <input 
+                
                 type="text" 
                 className='form-control' 
                 id="todo"

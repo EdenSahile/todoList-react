@@ -14,12 +14,17 @@ class TodosList extends Component {
 
             <React.Fragment>
                 <div className='col-sm-3 offset-3'>
-                    <TodoEtudes itemsEtudes={this.props.itemsEtudes}  keyEtudes={this.props.keyEtudes}/>
+                    <TodoEtudes 
+                    itemsEtudes={this.props.itemsEtudes} 
+                     keyEtudes={this.props.keyEtudes}
+                      delete={this.props.delete}/>
                 </div>
               
                 <div className='col-sm-6'>
 
-                    <TodoAssociation itemsAsso={this.props.itemsAsso}  keyAsso={this.props.keyAsso}/>
+                    <TodoAssociation 
+                    itemsAsso={this.props.itemsAsso} 
+                     keyAsso={this.props.keyAsso}/>
                 </div>
 
               </React.Fragment>

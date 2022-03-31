@@ -12,12 +12,12 @@ class App extends Component {
         this.state={
 
             itemsEtudes:[
-              {text:"bac blanc", keyEtudes:Date.now()}
+              {text:"", keyEtudes:Date.now()}
 
               
             ],
              itemsAsso:[
-               {text:"Ecrire les status", keyAsso:Date.now()}
+               {text:"", keyAsso:Date.now()}
               ],
             input:[]
           
@@ -49,20 +49,31 @@ handleChange(e){
     this.setState(state=>({
       itemsEtudes: [newList].concat(state.itemsEtudes),
       input:''
-    
-    
-   
     }))
+  }
+
+
+
+  delete=(key)=>{
+
+   
+// eslint-disable-next-line
+    let filtered=this.state.itemsEtudes.filter((item=>{
+      if(key !==item.keyEtudes){return item}
+     
+    }))
+
+     this.setState({
+        itemsEtudes:filtered
+      })
 
 
   }
 
-
 handleSubmit(e){
     e.preventDefault()
      this.add()
-     
-
+    
 }
 
 
@@ -77,11 +88,18 @@ handleSubmit(e){
         <div className='container'>
 
           <div className='row'>
-            <Header input={this.state.input} change={(e)=>this.handleChange(e)}  submit={(e)=>this.handleSubmit(e)}/>
+            <Header
+             items={this.state.itemsEtudes} 
+              input={this.state.input} 
+              change={(e)=>this.handleChange(e)} 
+               submit={(e)=>this.handleSubmit(e)}/>
           </div>
 
           <div className='row'>
-           <TodosList itemsEtudes={this.state.itemsEtudes}  itemsAsso={this.state.itemsAsso} />
+           <TodosList 
+           itemsEtudes={this.state.itemsEtudes} 
+            itemsAsso={this.state.itemsAsso} 
+            delete= {(e)=>this.delete(e)}/>
             </div>
 
           </div>
