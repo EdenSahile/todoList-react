@@ -1,9 +1,10 @@
- import React, {Component} from 'react'
+ import React  from 'react'
 
 
-class TodoEtudes extends Component {
-
-    render(){
+const TodoEtudes= ({
+    items,
+    delet
+})=> {
 
         return(
            
@@ -13,16 +14,13 @@ class TodoEtudes extends Component {
                     <hr className='blue'/>
                     <ul className='blue list-ul'>
                       { 
-                        this.props.items.map(item=>{
+                        items.map(item=>{
                              return(
-                            
+                    
                                 <li                                 
                                 key={item.key}
-                                onClick={()=>this.props.delete(item.key)}
-                                
-                                >{item.text}</li>
-                              
-                           
+                                onClick={()=>delet(item.key)}>{item.text}</li>
+                        
                             )
                         })
                          
@@ -34,7 +32,6 @@ class TodoEtudes extends Component {
          </React.Fragment>
         )
            
-    }
 
 
 

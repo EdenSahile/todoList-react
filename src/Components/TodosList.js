@@ -3,21 +3,17 @@ import TodoEtudes from './TodoEtudes';
 
 
 
-class TodosList extends Component {
-
-
-
-
-    render(){
-
+const TodosList=({
+    items, 
+    delet
+})=> {
         return(
 
             <React.Fragment>
                 <div className='col-sm-9 offset-3'>
                     <TodoEtudes 
-                    items={this.props.items} 
-                     key={this.props.key}
-                      delete={this.props.delete}/>
+                    items={items} 
+                    delet={delet}/>
                 </div>
               
                
@@ -25,7 +21,7 @@ class TodosList extends Component {
               </React.Fragment>
 
         )
-    }
+ 
 
   
 }

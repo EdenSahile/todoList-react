@@ -99,12 +99,15 @@ localStorage.setItem('items',JSON.stringify(filtered))
               input={this.state.input} 
               change={(e)=>this.handleChange(e)} 
               submit={(e)=>this.handleSubmit(e)}
-              placeholder={this.state.placeholder}/>
+              placeholder={this.state.placeholder}
+           
+              add={this.add}/>
           </div>
 
           <div className='row'>
-           <TodosList items={this.state.items} 
-            delete= {(e)=>this.delete(e)}/>
+           <TodosList 
+            items={this.state.items} 
+            delet= {(e)=>this.delete(e)}/>
             </div>
 
           </div>

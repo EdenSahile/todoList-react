@@ -1,35 +1,28 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 
-class Header extends Component {
+const Header= ({ placeholder, input,change,submit})=> {
 
+return(
+<div className='col-sm-6 offset-3'>
 
-
-
-
-
-    render(){
-
-        return(
-              <div className='col-sm-6 offset-3'>
-
-              <form className='form' onSubmit={(e)=>this.props.submit(e)}> 
+              <form className='form' onSubmit={submit}> 
                 <input 
                 
                 type="text" 
                 className='form-control' 
                 id="todo"
-                placeholder={this.props.placeholder}
-                onChange={(e)=>this.props.change(e)}
-                value={this.props.input}
+                placeholder={placeholder}
+                onChange={change}
+                value={input}
                 />
                 <button type="submit" className="btn btn-primary">Ajouter</button>
                 </form>
 
               </div>
 
-        )
-    }
+)
+
 
   
 }
