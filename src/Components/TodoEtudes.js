@@ -9,21 +9,22 @@ class TodoEtudes extends Component {
            
             <React.Fragment>
                <div className='list-container'>
-                    <h2 className="blue list title">  Etudes</h2>
+                    <h2 className="blue list title"> Association</h2>
                     <hr className='blue'/>
-                    <ul className='blue'>
+                    <ul className='blue list-ul'>
                       { 
-
-      
-                        this.props.itemsEtudes.map((item=>{
-
+                        this.props.items.map(item=>{
                              return(
-                                <li 
-                                key={item.keyEtudes}
-                                onClick={()=>this.props.delete(item.keyEtudes)}
+                            
+                                <li                                 
+                                key={item.key}
+                                onClick={()=>this.props.delete(item.key)}
+                                
                                 >{item.text}</li>
+                              
+                           
                             )
-                        })) 
+                        })
                          
                        }
 

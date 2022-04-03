@@ -7,49 +7,61 @@ import TodosList from './TodosList';
 class App extends Component {
 
  constructor(props){
-
         super(props)
         this.state={
-
-            itemsEtudes:[
-              {text:"", keyEtudes:Date.now()}
-
-              
-            ],
-             itemsAsso:[
-               {text:"", keyAsso:Date.now()}
-              ],
-            input:[]
-          
-
+            items:[
+              {text:"learn react", key:Date.now()}  
+            ], 
+            input:[],
+            placeholder:"Entrez une tâche"
           }
 
 this.handleChange=this.handleChange.bind(this);
 this.handleSubmit=this.handleSubmit.bind(this);
 }
 
+componentDidMount(){
 
-
-handleChange(e){
+  let items=JSON.parse(localStorage.getItem('items'))
+  this.setState({items:items})
+}
+ 
+handleChange=(e)=>{
     
     this.setState({
       input:e.target.value
  })
- 
 
 
-   
+    
+}
+
+ handleSubmit(e){
+    e.preventDefault()
+     this.add()
   }
 
 
   add=()=>{
 
-    let newList={text:this.state.input, keyEtudes:Date.now()}
+    let text= !this.state.input.length? "Merci de saisir une tâche avant de l'ajouter":"Entrez votre tâche"
+    
+    this.setState({
+        placeholder:text
+      })
+
+      if(!this.state.input.length){
+        return
+      }
+  
+    let newList={text:this.state.input, key:Date.now()}
 
     this.setState(state=>({
-      itemsEtudes: [newList].concat(state.itemsEtudes),
+      items: [newList].concat(state.items),
       input:''
     }))
+
+    localStorage.setItem('items',JSON.stringify([newList].concat(this.state.items)))
   }
 
 
@@ -58,28 +70,22 @@ handleChange(e){
 
    
 // eslint-disable-next-line
-    let filtered=this.state.itemsEtudes.filter((item=>{
-      if(key !==item.keyEtudes){return item}
+    let filtered=this.state.items.filter((item=>{
+      if(key !==item.key){return item}
      
     }))
 
      this.setState({
-        itemsEtudes:filtered
+        items:filtered
       })
+localStorage.setItem('items',JSON.stringify(filtered))
+ 
+    }
 
-
-  }
-
-handleSubmit(e){
-    e.preventDefault()
-     this.add()
-    
-}
 
 
 
   render(){
-
 
  return (
     <div className="App">
@@ -89,22 +95,19 @@ handleSubmit(e){
 
           <div className='row'>
             <Header
-             items={this.state.itemsEtudes} 
+             items={this.state.items} 
               input={this.state.input} 
               change={(e)=>this.handleChange(e)} 
-               submit={(e)=>this.handleSubmit(e)}/>
+              submit={(e)=>this.handleSubmit(e)}
+              placeholder={this.state.placeholder}/>
           </div>
 
           <div className='row'>
-           <TodosList 
-           itemsEtudes={this.state.itemsEtudes} 
-            itemsAsso={this.state.itemsAsso} 
+           <TodosList items={this.state.items} 
             delete= {(e)=>this.delete(e)}/>
             </div>
 
           </div>
-        
-
 
       </header>
     </div>

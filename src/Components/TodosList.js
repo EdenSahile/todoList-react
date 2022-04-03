@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TodoEtudes from './TodoEtudes';
-import TodoAssociation from './TodoAssociation';
+
 
 
 class TodosList extends Component {
@@ -13,19 +13,14 @@ class TodosList extends Component {
         return(
 
             <React.Fragment>
-                <div className='col-sm-3 offset-3'>
+                <div className='col-sm-9 offset-3'>
                     <TodoEtudes 
-                    itemsEtudes={this.props.itemsEtudes} 
-                     keyEtudes={this.props.keyEtudes}
+                    items={this.props.items} 
+                     key={this.props.key}
                       delete={this.props.delete}/>
                 </div>
               
-                <div className='col-sm-6'>
-
-                    <TodoAssociation 
-                    itemsAsso={this.props.itemsAsso} 
-                     keyAsso={this.props.keyAsso}/>
-                </div>
+               
 
               </React.Fragment>
 

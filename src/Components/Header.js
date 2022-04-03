@@ -19,7 +19,7 @@ class Header extends Component {
                 type="text" 
                 className='form-control' 
                 id="todo"
-                placeholder='Entrer votre tâche'
+                placeholder={this.props.placeholder}
                 onChange={(e)=>this.props.change(e)}
                 value={this.props.input}
                 />

@@ -38,14 +38,17 @@ font-family: 'Fredoka', sans-serif;
 
 .list-container{
 
-  width:250px;
+width:70%;
   margin-top:3em;
   background-color:white;
   margin-right:20px;
+  padding:10px 0;
   
+}
 
-  
+.list-ul{
 
+  padding:0 10px;
 }
 
 
@@ -54,13 +57,26 @@ font-family: 'Fredoka', sans-serif;
   text-align: left;
   padding-left:25px;
   font-weight: bold;
-  padding-top: 10px;;
+  padding-top: 10px;
   
 }
 li{
+  font-size: 1.5rem;
   list-style-type: none;
+  padding-left: 10px;
   text-align: left;
+  border-radius: 5px;
+ background-color: rgba(54, 48, 48, 0.2);
+ margin-bottom:10px;
 }
+
+li:hover{
+
+  background-color: pink;
+}
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
