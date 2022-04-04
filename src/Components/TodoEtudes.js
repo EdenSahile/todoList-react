@@ -16,7 +16,7 @@ const TodoEtudes= ({
                       { 
                         items.map(item=>{
                              return(
-                    
+                
                                 <li                                 
                                 key={item.key}
                                 onClick={()=>delet(item.key)}>{item.text}</li>
@@ -25,8 +25,6 @@ const TodoEtudes= ({
                         })
                          
                        }
-
-                       
                    </ul>
                 </div>
          </React.Fragment>

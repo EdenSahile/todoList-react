@@ -21,18 +21,15 @@ this.handleSubmit=this.handleSubmit.bind(this);
 }
 
 componentDidMount(){
-
   let items=JSON.parse(localStorage.getItem('items'))
   this.setState({items:items})
 }
  
-handleChange=(e)=>{
+handleChange(e){
     
     this.setState({
       input:e.target.value
  })
-
-
     
 }
 
@@ -57,11 +54,11 @@ handleChange=(e)=>{
     let newList={text:this.state.input, key:Date.now()}
 
     this.setState(state=>({
-      items: [newList].concat(state.items),
+      items:state.items.concat([newList]),
       input:''
     }))
 
-    localStorage.setItem('items',JSON.stringify([newList].concat(this.state.items)))
+    localStorage.setItem('items',JSON.stringify(this.state.items.concat([newList])))
   }
 
 
@@ -87,6 +84,8 @@ localStorage.setItem('items',JSON.stringify(filtered))
 
   render(){
 
+  
+
  return (
     <div className="App">
       <header className="App-header">
@@ -100,7 +99,6 @@ localStorage.setItem('items',JSON.stringify(filtered))
               change={(e)=>this.handleChange(e)} 
               submit={(e)=>this.handleSubmit(e)}
               placeholder={this.state.placeholder}
-           
               add={this.add}/>
           </div>
 
